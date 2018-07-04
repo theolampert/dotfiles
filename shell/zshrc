@@ -1,6 +1,6 @@
 # Path to your oh-my-zsh installation.
 ZSH_DISABLE_COMPFIX="true"
-export ZSH=/Users/theo/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
