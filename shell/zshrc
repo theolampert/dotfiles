@@ -61,7 +61,6 @@ export LANG=en_US.UTF-8
 export PATH="/usr/local/bin:$PATH"
 
 # Load aliases
-export PATH="/usr/local/bin:$PATH"
 for file in ~/.{aliases,functions,extra}; do
 	[ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
