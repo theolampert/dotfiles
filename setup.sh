@@ -2,6 +2,7 @@
 
 declare -a FILES_TO_SYMLINK=(
 
+  'vimrc'
   'shell/aliases'
   'shell/zshrc'
 

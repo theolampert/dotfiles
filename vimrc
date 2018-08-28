@@ -12,7 +12,10 @@ set clipboard=unnamed
 set exrc
 
 " Ignores
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn|node_modules|venv|.cache|vendor)$'
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(.git|node_modules|venv|.cache|vendor)$',
+  \ 'file': '\v\.(.gitignore|.DS_Store)$',
+  \ }
 set wildignore+=*/node_modules/*,*.so,*.swp,*.zip,*.pyc,*/venv/*,.cache,vendor
 
 call plug#begin('~/.vim/plugged')
@@ -70,6 +73,8 @@ let g:ctrlp_prompt_mappings = {
       \ 'AcceptSelection("e")': ['<2-LeftMouse>'],
       \ 'AcceptSelection("t")': ['<cr>'],
       \ }
+
+let g:ctrlp_use_caching = 0
 
 " Remaps
 noremap <F3> :Autoformat<CR>
