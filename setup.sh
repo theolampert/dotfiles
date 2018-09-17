@@ -21,6 +21,7 @@ for file in ${FILES_TO_SYMLINK[@]}; do
   name=`echo "."${file#*/}`
   link=~/${name}
   echo "linking $link"
+  echo $file
   ln -nfs dotfiles/$file $link
 done
 

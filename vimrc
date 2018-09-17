@@ -39,6 +39,7 @@ Plug 'mkitt/tabline.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'mattn/emmet-vim'
 Plug 'leafgarland/typescript-vim'
+Plug 'elmcast/elm-vim'
 Plug 'w0rp/ale'
 
 call plug#end()
@@ -78,3 +79,6 @@ let g:ctrlp_use_caching = 0
 
 " Remaps
 noremap <F3> :Autoformat<CR>
+
+" Elm
+let g:elm_format_autosave = 1
