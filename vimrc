@@ -20,6 +20,8 @@ set wildignore+=*/node_modules/*,*.so,*.swp,*.zip,*.pyc,*/venv/*,.cache,vendor
 
 call plug#begin('~/.vim/plugged')
 
+" Plugins
+
 Plug 'Chiel92/vim-autoformat'
 Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
@@ -56,7 +58,19 @@ filetype off
 " Linter
 let &runtimepath.=',~/.vim/bundle/ale'
 filetype plugin on
-let g:ale_linters = {'javascript': ['eslint'], 'typescript': ['tslint']}
+
+let g:ale_linters = {
+      \'javascript': ['eslint'], 
+      \'typescript': ['tslint'],
+      \'python': ['flake8']
+      \}
+
+" Linter fixers
+let g:ale_fixers = {
+      \'javascript': ['eslint']
+      \}
+
+autocmd BufWritePost *.js,*.jsx ALEFix
 
 " Terminal Specific
 if $TERM_PROGRAM =~ "iTerm"
