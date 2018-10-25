@@ -78,3 +78,5 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 # Load RVM
 source $HOME/.rvm/scripts/rvm
+
+eval $(thefuck --alias)

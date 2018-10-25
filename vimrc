@@ -56,7 +56,8 @@ set nocompatible
 filetype off
 
 " Linter
-let &runtimepath.=',~/.vim/bundle/ale'
+let g:ale_python_flake8_executable = 'python3'
+let g:ale_python_flake8_options = '-m flake8'
 filetype plugin on
 
 let g:ale_linters = {
@@ -67,10 +68,11 @@ let g:ale_linters = {
 
 " Linter fixers
 let g:ale_fixers = {
-      \'javascript': ['eslint']
+      \'javascript': ['eslint'],
+      \'python': ['isort']
       \}
 
-autocmd BufWritePost *.js,*.jsx ALEFix
+autocmd BufWritePost *.js,*.jsx,*.py ALEFix
 
 " Terminal Specific
 if $TERM_PROGRAM =~ "iTerm"
