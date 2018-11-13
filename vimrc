@@ -43,6 +43,7 @@ Plug 'mattn/emmet-vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'elmcast/elm-vim'
 Plug 'w0rp/ale'
+Plug 'bumaociyuan/vim-swift'
 
 call plug#end()
 
@@ -62,18 +63,18 @@ filetype plugin on
 
 let g:ale_linters = {
       \'javascript': ['eslint'], 
-      \'typescript': ['tslint'],
+      \'typescript': ['tsserver', 'tslint'],
       \'python': ['flake8']
       \}
 
 " Linter fixers
 let g:ale_fixers = {
       \'javascript': ['eslint'],
+      \'typescript': ['tslint'],
       \'python': ['isort']
       \}
 
-autocmd BufWritePost *.js,*.jsx,*.py ALEFix
-
+autocmd BufWritePost *.js,*.jsx,*.py,*.ts,*.tsx ALEFix
 " Terminal Specific
 if $TERM_PROGRAM =~ "iTerm"
   let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical bar in insert mode
