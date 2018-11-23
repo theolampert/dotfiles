@@ -11,6 +11,7 @@ declare -a FILES_TO_SYMLINK=(
   'git/gitignore'
 
   'bin/git-blast'
+  'bin/pre-commit'
 )
 
 declare -a BINARIES=(

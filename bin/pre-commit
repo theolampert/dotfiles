@@ -1,0 +1,1 @@
+echo $1 > $(pwd)/.git/hooks/pre-commit
