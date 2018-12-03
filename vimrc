@@ -30,7 +30,6 @@ Plug 'fatih/vim-go'
 Plug 'jacoborus/tender.vim'
 Plug 'othree/yajs.vim'
 Plug 'scrooloose/nerdcommenter'
-Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
@@ -44,6 +43,8 @@ Plug 'leafgarland/typescript-vim'
 Plug 'elmcast/elm-vim'
 Plug 'w0rp/ale'
 Plug 'bumaociyuan/vim-swift'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'ajh17/VimCompletesMe'
 
 call plug#end()
 
@@ -55,6 +56,8 @@ let g:indentLine_char = '-'
 
 set nocompatible
 filetype off
+
+set statusline+=%{gutentags#statusline()}
 
 " Linter
 let g:ale_python_flake8_executable = 'python3'
