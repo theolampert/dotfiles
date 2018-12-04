@@ -45,6 +45,7 @@ Plug 'w0rp/ale'
 Plug 'bumaociyuan/vim-swift'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'ajh17/VimCompletesMe'
+Plug 'vim-scripts/AutoComplPop'
 
 call plug#end()
 
