@@ -2,8 +2,5 @@
   email = theolampert@gmail.com
   name = Theo Lampert
 
-[core]
-  excludesfile = ~/.gitignore
-
 [github]
   user = theolampert

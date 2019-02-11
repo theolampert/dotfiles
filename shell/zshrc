@@ -68,15 +68,7 @@ unset file;
 
 export EDITOR=vim
 
-export NVM_DIR="/usr/local/opt/nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-nvm use default --delete-prefix
-
 export PATH="$PATH:$HOME/.cargo/bin"
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-
-# Load RVM
-source $HOME/.rvm/scripts/rvm
-
 eval $(thefuck --alias)
+export PATH=/Users/theolampert/.deno/bin:$PATH

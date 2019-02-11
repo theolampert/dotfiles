@@ -7,9 +7,9 @@ set shiftwidth=2
 set conceallevel=0
 set ignorecase
 set clipboard=unnamed
-
-" Allow directory specific config
-set exrc
+set noswapfile
+set nocompatible
+set termguicolors
 
 " Ignores
 let g:ctrlp_custom_ignore = {
@@ -18,47 +18,47 @@ let g:ctrlp_custom_ignore = {
   \ }
 set wildignore+=*/node_modules/*,*.so,*.swp,*.zip,*.pyc,*/venv/*,.cache,vendor
 
+" Plugins
 call plug#begin('~/.vim/plugged')
 
-" Plugins
+  " Appearance
+  Plug 'Nequo/vim-allomancer'
+  Plug 'vim-airline/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
+  Plug 'mkitt/tabline.vim'
+  Plug 'airblade/vim-gitgutter'
 
-Plug 'Chiel92/vim-autoformat'
-Plug 'Yggdroot/indentLine'
-Plug 'airblade/vim-gitgutter'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'fatih/vim-go'
-Plug 'jacoborus/tender.vim'
-Plug 'othree/yajs.vim'
-Plug 'scrooloose/nerdcommenter'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-sensible'
-Plug 'tpope/vim-surround'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'Chiel92/vim-autoformat'
-Plug 'mkitt/tabline.vim'
-Plug 'editorconfig/editorconfig-vim'
-Plug 'mattn/emmet-vim'
-Plug 'leafgarland/typescript-vim'
-Plug 'elmcast/elm-vim'
-Plug 'w0rp/ale'
-Plug 'bumaociyuan/vim-swift'
-Plug 'ludovicchabant/vim-gutentags'
-Plug 'ajh17/VimCompletesMe'
-Plug 'vim-scripts/AutoComplPop'
+  " Formatting
+  Plug 'Yggdroot/indentLine'
+  Plug 'ctrlpvim/ctrlp.vim'
+  Plug 'othree/yajs.vim'
+  Plug 'scrooloose/nerdcommenter'
+  Plug 'tpope/vim-fugitive'
+  Plug 'tpope/vim-sensible'
+  Plug 'tpope/vim-surround'
+
+  " Linting
+  Plug 'w0rp/ale'
+
+  " Completion
+  Plug 'ludovicchabant/vim-gutentags'
+  Plug 'ajh17/VimCompletesMe'
+
+  " Stack specific
+  Plug 'bumaociyuan/vim-swift'
+  Plug 'leafgarland/typescript-vim'
+  Plug 'elmcast/elm-vim'
+  Plug 'editorconfig/editorconfig-vim'
 
 call plug#end()
 
 " Appearance
 syntax enable
-colorscheme tender
+colorscheme allomancer
 
 let g:indentLine_char = '-'
 
-set nocompatible
 filetype off
-
-set statusline+=%{gutentags#statusline()}
 
 " Linter
 let g:ale_python_flake8_executable = 'python3'
