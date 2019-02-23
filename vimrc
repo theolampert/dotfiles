@@ -63,6 +63,7 @@ filetype off
 " Linter
 let g:ale_python_flake8_executable = 'python3'
 let g:ale_python_flake8_options = '-m flake8'
+call ale#Set('python_black_auto_pipenv', 1)
 filetype plugin on
 
 let g:ale_linters = {
@@ -75,8 +76,9 @@ let g:ale_linters = {
 let g:ale_fixers = {
       \'javascript': ['eslint'],
       \'typescript': ['tslint'],
-      \'python': ['isort']
+      \'python': ['isort', 'black']
       \}
+
 
 autocmd BufWritePost *.js,*.jsx,*.py,*.ts,*.tsx ALEFix
 " Terminal Specific
