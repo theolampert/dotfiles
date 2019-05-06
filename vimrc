@@ -10,6 +10,8 @@ set clipboard=unnamed
 set noswapfile
 set nocompatible
 set termguicolors
+set hlsearch
+set cursorline
 
 " Ignores
 let g:ctrlp_custom_ignore = {
@@ -49,6 +51,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'leafgarland/typescript-vim'
   Plug 'elmcast/elm-vim'
   Plug 'editorconfig/editorconfig-vim'
+  Plug 'posva/vim-vue'
 
 call plug#end()
 
