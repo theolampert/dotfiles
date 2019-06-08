@@ -6,7 +6,7 @@ export ZSH=~/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="sorin"
+ZSH_THEME="lambda"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -71,4 +71,7 @@ export EDITOR=vim
 export PATH="$PATH:$HOME/.cargo/bin"
 
 eval $(thefuck --alias)
-export PATH=/Users/theolampert/.deno/bin:$PATH
+
+# fzf
+export FZF_DEFAULT_COMMAND='fd --type f'
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

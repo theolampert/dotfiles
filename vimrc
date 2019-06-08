@@ -1,4 +1,6 @@
+
 " Basics
+set encoding=utf-8
 set list
 set number
 set expandtab
@@ -14,11 +16,7 @@ set hlsearch
 set cursorline
 
 " Ignores
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(.git|node_modules|venv|.cache|vendor)$',
-  \ 'file': '\v\.(.gitignore|.DS_Store)$',
-  \ }
-set wildignore+=*/node_modules/*,*.so,*.swp,*.zip,*.pyc,*/venv/*,.cache,vendor
+set wildignore+=*/.git/*,*/coverage/*,*/node_modules/*,*/.Trash/*,*/.cache/*,*/public/*,*/vendor/*,package-lock.json,yarn.lock,.DS_Store
 
 " Plugins
 call plug#begin('~/.vim/plugged')
@@ -31,13 +29,14 @@ call plug#begin('~/.vim/plugged')
   Plug 'airblade/vim-gitgutter'
 
   " Formatting
+  Plug 'editorconfig/editorconfig-vim'
   Plug 'Yggdroot/indentLine'
-  Plug 'ctrlpvim/ctrlp.vim'
   Plug 'othree/yajs.vim'
   Plug 'scrooloose/nerdcommenter'
   Plug 'tpope/vim-fugitive'
   Plug 'tpope/vim-sensible'
   Plug 'tpope/vim-surround'
+  Plug 'Townk/vim-autoclose'
 
   " Linting
   Plug 'w0rp/ale'
@@ -50,8 +49,11 @@ call plug#begin('~/.vim/plugged')
   Plug 'bumaociyuan/vim-swift'
   Plug 'leafgarland/typescript-vim'
   Plug 'elmcast/elm-vim'
-  Plug 'editorconfig/editorconfig-vim'
   Plug 'posva/vim-vue'
+
+  " fzf
+  Plug '/usr/local/opt/fzf'
+  Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
@@ -69,13 +71,14 @@ let g:ale_python_flake8_options = '-m flake8'
 call ale#Set('python_black_auto_pipenv', 1)
 filetype plugin on
 
+" Linters
 let g:ale_linters = {
       \'javascript': ['eslint'], 
       \'typescript': ['tsserver', 'tslint'],
       \'python': ['flake8']
       \}
 
-" Linter fixers
+" Fixers
 let g:ale_fixers = {
       \'javascript': ['eslint'],
       \'typescript': ['tslint'],
@@ -96,15 +99,8 @@ autocmd VimEnter *
       \|  PlugInstall | q
       \| endif
 
-let g:ctrlp_prompt_mappings = {
-      \ 'AcceptSelection("e")': ['<2-LeftMouse>'],
-      \ 'AcceptSelection("t")': ['<cr>'],
-      \ }
+" Normal mode remaps
+noremap <C-p> :Files<CR>
 
-let g:ctrlp_use_caching = 0
-
-" Remaps
-noremap <F3> :Autoformat<CR>
-
-" Elm
+"Ctrl-V Elm
 let g:elm_format_autosave = 1
