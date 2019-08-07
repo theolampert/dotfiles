@@ -25,7 +25,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'Nequo/vim-allomancer'
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
-  Plug 'mkitt/tabline.vim'
   Plug 'airblade/vim-gitgutter'
 
   " Formatting
@@ -37,13 +36,16 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-sensible'
   Plug 'tpope/vim-surround'
   Plug 'Townk/vim-autoclose'
+  Plug 'junegunn/rainbow_parentheses.vim'
 
   " Linting
   Plug 'w0rp/ale'
 
   " Completion
   Plug 'ludovicchabant/vim-gutentags'
-  Plug 'ajh17/VimCompletesMe'
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
 
   " Stack specific
   Plug 'bumaociyuan/vim-swift'
@@ -56,6 +58,12 @@ call plug#begin('~/.vim/plugged')
   Plug 'junegunn/fzf.vim'
 
 call plug#end()
+
+" Airline
+let g:airline#extensions#tabline#enabled = 1
+
+" Completion
+" let g:deoplete#enable_at_startup = 1
 
 " Appearance
 syntax enable
@@ -74,14 +82,14 @@ filetype plugin on
 " Linters
 let g:ale_linters = {
       \'javascript': ['eslint'], 
-      \'typescript': ['tsserver', 'tslint'],
+      \'typescript': ['tsserver', 'tslint', 'eslint'],
       \'python': ['flake8']
       \}
 
 " Fixers
 let g:ale_fixers = {
       \'javascript': ['eslint'],
-      \'typescript': ['tslint'],
+      \'typescript': ['tslint', 'eslint'],
       \'python': ['isort', 'black']
       \}
 
