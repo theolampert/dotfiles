@@ -1,43 +1,23 @@
 #!/bin/zsh
 
-declare -a FILES_TO_SYMLINK=(
-
-  'vimrc'
-  'shell/aliases'
-  'shell/zshrc'
-
-  'git/gitattributes'
-  'git/gitconfig'
-  'git/gitignore'
-
-  'bin/git-blast'
-  'bin/pre-commit'
-)
-
-declare -a BINARIES=(
-)
-
 # Symlink dotfiles
-for file in ${FILES_TO_SYMLINK[@]}; do
-  name=`echo "."${file#*/}`
-  link=~/${name}
-  echo "linking $link"
-  echo $file
-  ln -nfs dotfiles/$file $link
-done
+ln -nfs ~/dotfiles/config/nvim/init.vim ~/.config/nvim/init.vim
+ln -nfs ~/dotfiles/config/nvim/coc-settings.json ~/.config/nvim/coc-sesttings.json
 
-declare -a BINARIES=(
-  '.git-blast'
-)
+ln -nfs ~/dotfiles/shell/aliases ~/.aliases
+ln -nfs ~/dotfiles/shell/zshrc ~/.zshrc
 
-for i in ${BINARIES[@]}; do
-  echo "Changing access permissions for binary script :: ${i##*/}"
-  chmod +rwx $HOME/${i##*/}
-done
+ln -nfs ~/dotfiles/git/gitattributes ~/.gitattributes
+ln -nfs ~/dotfiles/git/gitconfig ~/.gitconfig
+ln -nfs ~/dotfiles/git/gitignore ~/.gitignore
 
-unset BINARIES
+ln -nfs ~/dotfiles/bin/git-blast ~/.git-blast
+ln -nfs ~/dotfiles/bin/pre-commit ~/.pre-commit
 
-# Terminal & iTerm 2                                                          #
+# Binaries
+chmod +rwx ~/.git-blast
+
+# Terminal & iTerm 2
 defaults write com.apple.terminal StringEncodings -array 4
 defaults write com.googlecode.iterm2 PromptOnQuit -bool false
 
