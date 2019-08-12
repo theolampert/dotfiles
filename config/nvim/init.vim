@@ -51,6 +51,7 @@ call plug#begin('~/.vim/plugged')
   " Navigation
   Plug '/usr/local/opt/fzf'
   Plug 'junegunn/fzf.vim'
+  Plug 'scrooloose/nerdtree'
 
 call plug#end()
 
@@ -89,6 +90,10 @@ let g:SuperTabDefaultCompletionType = "<c-n>"
 
 " Normal mode remaps
 noremap <C-p> :Files<CR>
-noremap  <silent> <tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bnext<CR>
-noremap  <silent> <s-tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bprevious<CR>
+noremap <silent> <tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bnext<CR>
+noremap <silent> <s-tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bprevious<CR>
+noremap <silent> gd :call CocAction('jumpDefinition', 'drop') <CR>
+
+" Global remaps
+map <C-n> :NERDTreeToggle<CR>
 
