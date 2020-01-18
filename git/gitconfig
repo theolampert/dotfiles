@@ -4,3 +4,7 @@
 
 [github]
   user = theolampert
+[http "https://git.paas.theo.sh"]
+	sslCAInfo = /Users/theo/.flynn/ca-certs/default.pem
+[credential "https://git.paas.theo.sh"]
+	helper = /usr/local/bin/flynn git-credentials

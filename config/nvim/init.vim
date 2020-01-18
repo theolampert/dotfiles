@@ -10,17 +10,21 @@ set clipboard=unnamed
 set noswapfile
 set nocompatible
 set termguicolors
-set hlsearch
+set nohls
 set cursorline
 set laststatus=2
 set showtabline=2
 set noshowmode
+set updatetime=100
+set undofile
 
 " Plugins
 call plug#begin('~/.vim/plugged')
 
   " Appearance
   Plug 'Nequo/vim-allomancer'
+  Plug 'datMaffin/vim-colors-bionik'
+  Plug 'wadackel/vim-dogrun'
   Plug 'airblade/vim-gitgutter'
   Plug 'itchyny/lightline.vim'
   Plug 'mengelbrecht/lightline-bufferline'
@@ -51,13 +55,18 @@ call plug#begin('~/.vim/plugged')
   " Navigation
   Plug '/usr/local/opt/fzf'
   Plug 'junegunn/fzf.vim'
-  Plug 'scrooloose/nerdtree'
+  " Plug 'scrooloose/nerdtree'
+  Plug 'francoiscabrol/ranger.vim'
 
 call plug#end()
 
 " Appearance
 syntax enable
-colorscheme allomancer
+colorscheme dogrun
+let g:NERDTreeDirArrowExpandable = '→'
+let g:NERDTreeDirArrowCollapsible = '↓'
+
+"colorscheme bionik
 let g:indentLine_char = '-'
 
 " Statusline
@@ -66,15 +75,16 @@ function! CocCurrentFunction()
 endfunction
 
 let g:lightline = {
-      \ 'colorscheme': 'one',
+      \ 'colorscheme': 'dogrun',
       \ 'component_expand': {'buffers': 'lightline#bufferline#buffers'},
       \ 'component_type': {'buffers': 'tabsel'},
       \ 'tabline': {'left': [['buffers']], 'right': [['']]},
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'currentfunction'] ]
+      \             [ 'cocstatus', 'gitbranch', 'currentfunction'] ]
       \ },
       \ 'component_function': {
+      \   'cocstatus': 'coc#status',
       \   'gitbranch': 'fugitive#head',
       \   'currentfunction': 'CocCurrentFunction',
       \ },

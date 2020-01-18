@@ -50,7 +50,6 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-
 set -o vi
 
 # User configuration
@@ -67,7 +66,7 @@ for file in ~/.{aliases,functions,extra}; do
 done;
 unset file;
 
-export EDITOR=vim
+export EDITOR=nvim
 
 export PATH="$PATH:$HOME/.cargo/bin"
 
@@ -76,3 +75,6 @@ eval $(thefuck --alias)
 # fzf
 export FZF_DEFAULT_COMMAND='fd --type f'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Completions
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
