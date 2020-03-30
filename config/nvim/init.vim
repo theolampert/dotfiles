@@ -52,10 +52,13 @@ call plug#begin('~/.vim/plugged')
   Plug 'leafgarland/typescript-vim'
   Plug 'ianks/vim-tsx'
 
+  " -- Kotlin
+  Plug 'udalov/kotlin-vim'
+
   " Navigation
   Plug '/usr/local/opt/fzf'
   Plug 'junegunn/fzf.vim'
-  " Plug 'scrooloose/nerdtree'
+  Plug 'scrooloose/nerdtree'
   Plug 'francoiscabrol/ranger.vim'
 
 call plug#end()

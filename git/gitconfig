@@ -1,6 +1,7 @@
 [user]
-  email = theolampert@gmail.com
+	email = mail@theo.sh
   name = Theo Lampert
+	signingkey = F98BC1E27BCF7D83
 
 [github]
   user = theolampert
@@ -8,3 +9,7 @@
 	sslCAInfo = /Users/theo/.flynn/ca-certs/default.pem
 [credential "https://git.paas.theo.sh"]
 	helper = /usr/local/bin/flynn git-credentials
+[commit]
+	gpgsign = true
+[gpg]
+	program = gpg

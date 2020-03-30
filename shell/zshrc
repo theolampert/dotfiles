@@ -76,5 +76,8 @@ eval $(thefuck --alias)
 export FZF_DEFAULT_COMMAND='fd --type f'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# GPG
+export GPG_TTY=$(tty)
+
 # Completions
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
