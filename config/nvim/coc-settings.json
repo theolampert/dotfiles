@@ -8,6 +8,10 @@
   "diagnostic.warningSign": "•",
   "diagnostic.infoSign": "•",
   "languageserver": {
+    "swift": {
+      "command":"sourcekit-lsp",
+      "filetypes": ["swift"]
+    },
     "ccls": {
         "command": "ccls",
         "filetypes": [

@@ -38,6 +38,11 @@ call plug#begin('~/.vim/plugged')
 
   " Completion & linting
   Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
+  Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
+
 
   " Utilities 
   Plug 'tpope/vim-eunuch'
@@ -52,8 +57,14 @@ call plug#begin('~/.vim/plugged')
   Plug 'leafgarland/typescript-vim'
   Plug 'ianks/vim-tsx'
 
+  " -- GraphQL
+  Plug 'jparise/vim-graphql'
+
   " -- Kotlin
   Plug 'udalov/kotlin-vim'
+
+  " -- Dart
+  Plug 'dart-lang/dart-vim-plugin'
 
   " Navigation
   Plug '/usr/local/opt/fzf'
@@ -66,15 +77,17 @@ call plug#end()
 " Appearance
 syntax enable
 colorscheme dogrun
+"colorscheme bionik
 let g:NERDTreeDirArrowExpandable = '→'
 let g:NERDTreeDirArrowCollapsible = '↓'
 
-"colorscheme bionik
 let g:indentLine_char = '-'
 
 " Statusline
-function! CocCurrentFunction()
-    return get(b:, 'coc_current_function', '')
+function! LightLineFilepath()
+    let l:rawPath = ('' != expand('%:p') ? expand('%:p') : '[No Name]')
+    let l:currentFile = substitute(rawPath, getcwd(), '', '')
+    return currentFile
 endfunction
 
 let g:lightline = {
@@ -84,11 +97,12 @@ let g:lightline = {
       \ 'tabline': {'left': [['buffers']], 'right': [['']]},
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'cocstatus', 'gitbranch', 'currentfunction'] ]
+      \             [ 'cocstatus', 'gitbranch', 'filepath'] ]
       \ },
       \ 'component_function': {
       \   'cocstatus': 'coc#status',
       \   'gitbranch': 'fugitive#head',
+      \   'filepath': 'LightLineFilepath',
       \   'currentfunction': 'CocCurrentFunction',
       \ },
       \ }
